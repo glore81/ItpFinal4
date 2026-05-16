@@ -20,6 +20,16 @@ class TaskManager:
             self.tasks.remove(task)
             return True
         return False
-
-
+    def edit_task(self , task_id , title = None , description = None , priority = None , deadline = None , status = None):
+        task = self.find_task(task_id)
+        if task is not None:
+            task.update(title , description , priority , deadline , status )
+            return True
+        return False
+    def mark_completed(self , task_id):
+        task = self.find_task(task_id)
+        if task is not None:
+            task.mark_completed()
+            return True
+        return False
 
