@@ -26,3 +26,22 @@ class User:
 
     def can_mark_completed(self):
         return False
+
+class Admin(User):
+    def __init__(self, name, email):
+        super().__init__(name, email)
+
+    def display_user(self):
+        print("Admin can manage all tasks")
+
+    def can_add_task(self):
+        return True
+
+    def can_edit_task(self):
+        return True
+
+    def can_delete_task(self):
+        return True
+
+    def can_mark_completed(self):
+        return True
