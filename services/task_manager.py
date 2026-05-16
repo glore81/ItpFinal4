@@ -52,3 +52,17 @@ class TaskManager:
             if task_deadline < today and task.status != "completed":
                 overdue.append(task)
         return overdue
+    def statistics(self):
+        total = len(self.tasks)
+        completed = 0
+        for task in self.tasks:
+            if task.status == "completed":
+                completed += 1
+        if total == 0:
+            percent = 0
+        else:
+            percent = completed / total * 100
+
+        print("Tasks:" , total)
+        print("Completed:" , completed)
+        print("Completion:" , round(percent , 2) , "%")
