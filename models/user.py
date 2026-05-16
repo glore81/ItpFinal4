@@ -1,18 +1,12 @@
 class User:
-    def __init__(self, name, email):
-        self.name = name
-        self.email = email
 
     def display_role(self):
-        print("User can only view tasks")
-
-    def get_email(self):
-        return self.email
+        return "User can only view tasks"
 
     def can_view_statistics(self):
         return True
 
-    def can_view_task(self):
+    def can_view_tasks(self):
         return True
 
     def can_add_task(self):
@@ -26,13 +20,14 @@ class User:
 
     def can_mark_completed(self):
         return False
+
+    def __str__(self):
+        return "User"
 
 class Admin(User):
-    def __init__(self, name, email):
-        super().__init__(name, email)
 
     def display_role(self):
-        print("Admin can manage all tasks")
+        return "Admin can manage all tasks"
 
     def can_add_task(self):
         return True
@@ -45,3 +40,6 @@ class Admin(User):
 
     def can_mark_completed(self):
         return True
+
+    def __str__(self):
+        return "Admin"
