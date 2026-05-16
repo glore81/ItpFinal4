@@ -1,9 +1,13 @@
 from datetime import datetime
+from utils.validator import validate_task
 class TaskManager:
     def __init__(self):
         self.tasks = []
     def add_task(self, task):
-        self.tasks.append(task)
+        if validate_task(task):
+            self.tasks.append(task)
+        else:
+            print("Invalid task")
     def show_tasks(self):
         if len(self.tasks) == 0:
             print("No tasks")
