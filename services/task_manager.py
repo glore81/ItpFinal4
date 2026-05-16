@@ -1,3 +1,4 @@
+from datetime import datetime
 class TaskManager:
     def __init__(self):
         self.tasks = []
@@ -32,4 +33,22 @@ class TaskManager:
             task.mark_completed()
             return True
         return False
-
+    def sort_tasks(self):
+        priority_order = {
+            "high" : 1 ,
+            "medium" : 2 ,
+            "low" : 3
+        }
+        self.tasks.sort(key = lambda task :( priority_order[task.priority] , task.deadline))
+        return self.tasks
+    def overdue_tasks(self):
+        today = datetime.today().date()
+        overdue = []
+        for task in self.tasks:
+            task_deadline = datetime.strptime(
+                task.deadline,
+                "%Y-%m-%d"
+            ).date()
+            if task_deadline < today and task.status != "completed":
+                overdue.append(task)
+        return overdue
