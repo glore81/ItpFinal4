@@ -3,7 +3,7 @@ class User:
         self.name = name
         self.email = email
 
-    def display_user(self):
+    def display_role(self):
         print("User can only view tasks")
 
     def get_email(self):
@@ -31,7 +31,7 @@ class Admin(User):
     def __init__(self, name, email):
         super().__init__(name, email)
 
-    def display_user(self):
+    def display_role(self):
         print("Admin can manage all tasks")
 
     def can_add_task(self):
