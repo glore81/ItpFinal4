@@ -1,0 +1,66 @@
+[
+  {
+    "id": 1,
+    "title": "Finish project report",
+    "description": "Complete final project documentation",
+    "priority": "high",
+    "deadline": "2026-05-10",
+    "status": "in_progress"
+  },
+  {
+    "id": 2,
+    "title": "Prepare presentation slides",
+    "description": "Create 5-10 slides for the final project presentation",
+    "priority": "high",
+    "deadline": "2026-05-12",
+    "status": "pending"
+  },
+  {
+    "id": 3,
+    "title": "Study Python OOP",
+    "description": "Review classes, inheritance, encapsulation, and polymorphism",
+    "priority": "medium",
+    "deadline": "2026-05-14",
+    "status": "completed"
+  },
+  {
+    "id": 4,
+    "title": "Write unit tests",
+    "description": "Test add, edit, delete, and complete task functions",
+    "priority": "medium",
+    "deadline": "2026-05-16",
+    "status": "in_progress"
+  },
+  {
+    "id": 5,
+    "title": "Submit GitHub repository",
+    "description": "Upload source code, README file, and project structure to GitHub",
+    "priority": "high",
+    "deadline": "2026-05-18",
+    "status": "pending"
+  },
+  {
+    "id": 6,
+    "title": "Check README file",
+    "description": "Make sure README includes project description, run instructions, and team members",
+    "priority": "low",
+    "deadline": "2026-05-20",
+    "status": "pending"
+  },
+  {
+    "id": 7,
+    "title": "Fix validation errors",
+    "description": "Check priority, status, and deadline format validation",
+    "priority": "medium",
+    "deadline": "2026-05-17",
+    "status": "pending"
+  },
+  {
+    "id": 8,
+    "title": "Prepare for code defense",
+    "description": "Each team member should be ready to explain their part of the code",
+    "priority": "high",
+    "deadline": "2026-05-21",
+    "status": "pending"
+  }
+]
