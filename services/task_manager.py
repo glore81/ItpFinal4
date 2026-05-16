@@ -28,7 +28,22 @@ class TaskManager:
     def edit_task(self , task_id , title = None , description = None , priority = None , deadline = None , status = None):
         task = self.find_task(task_id)
         if task is not None:
+            old_title = task.title
+            old_description = task.description
+            old_priority = task.priority
+            old_deadline = task.deadline
+            old_status = task.status
             task.update(title , description , priority , deadline , status )
+
+            if not validate_task(task):
+                task.title = old_title
+                task.description = old_description
+                task.priority = old_priority
+                task.deadline = old_deadline
+                task.status = old_status
+
+                print("Invalid task")
+                return False
             return True
         return False
     def mark_completed(self , task_id):
