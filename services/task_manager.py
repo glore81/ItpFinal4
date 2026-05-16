@@ -9,3 +9,17 @@ class TaskManager:
             return
         for task in self.tasks:
             print(task.title , "-" , task.status)
+    def find_task(self , task_id):
+        for task in self.tasks:
+            if task.task_id == task_id:
+                return task
+        return None
+    def delete_task(self , task_id):
+        task = self.find_task(task_id)
+        if task is not None:
+            self.tasks.remove(task)
+            return True
+        return False
+
+
+
