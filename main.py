@@ -16,3 +16,21 @@ def choose_role():
         return Admin()
     else:
         return User()
+
+def show_menu(role):
+    print("\n--- MENU ---")
+    print("1. View all tasks")
+    print("2. View statistics")
+
+    if role.can_add_task():
+        print("3. Add task")
+    if role.can_edit_task():
+        print("4. Edit task")
+    if role.can_delete_task():
+        print("5. Delete task")
+    if role.can_mark_completed():
+        print("6. Mark task as completed")
+
+    print("7. Show overdue tasks")
+    print("8. Sort tasks by priority")
+    print("0. Exit")
