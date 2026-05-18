@@ -125,3 +125,52 @@ def complete_task(manager):
         print("Task not found!")
 
 
+def main():
+    # Choose role and load tasks from file
+    role = choose_role()
+    print(f"\nLogged in as: {role}")
+    print(role.display_role())
+
+    manager = TaskManager()
+    task_from_json(DATA_FILE, manager)
+
+    # Main loop
+    while True:
+        show_menu(role)
+        choice = input("\nYour choice: ")
+
+        if choice == "1":
+            view_tasks(manager)
+
+        elif choice == "2":
+            view_statistics(manager)
+
+        elif choice == "3" and role.can_add_task():
+            add_task(manager)
+
+        elif choice == "4" and role.can_edit_task():
+            edit_task(manager)
+
+        elif choice == "5" and role.can_delete_task():
+            delete_task(manager)
+
+        elif choice == "6" and role.can_mark_completed():
+            complete_task(manager)
+
+        elif choice == "7":
+            view_overdue(manager)
+
+        elif choice == "8":
+            sort_and_show(manager)
+
+        elif choice == "0":
+            # Save tasks to file before exit
+            task_to_json(DATA_FILE, manager)
+            print("Goodbye!")
+            break
+
+        else:
+            print("Invalid choice or no permission!")
+
+
+main()
