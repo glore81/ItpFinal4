@@ -100,3 +100,11 @@ def mark_task_completed(manager):
         print("Task marked as completed")
     else:
         print("Task not found")
+
+def show_tasks(tasks):
+    if len(tasks) == 0:
+        print("No tasks")
+        return
+
+    for task in tasks:
+        print(task)
