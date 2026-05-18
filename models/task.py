@@ -8,28 +8,28 @@ class Task:
         self.status = status;
 
     def __str__(self):
-        return (str("Task Id: " + str(self.task_id) + "\nTitle: "+self.title)+"\nDescription: "+self.description +
-                "\nPriority: " + self.priority + "\nDeadline: " + self.deadline + "\nStatus: " + self.status);
+        return ("Task Id: " + str(self.task_id) + "\nTitle: "+self.title+"\nDescription: "+self.description +
+                "\nPriority: " + self.priority + "\nDeadline: " + self.deadline + "\nStatus: " + self.status)
 
     def mark_completed(self):
-        self.status = "completed";
+        self.status = "completed"
 
     def update(self, title = None, description = None, priority = None, deadline = None, status = None):
 
         if title != None:
-            self.title = title;
+            self.title = title
 
         if description != None:
-            self.description = description;
+            self.description = description
 
         if priority != None:
-            self.priority = priority;
+            self.priority = priority
 
         if deadline != None:
-            self.deadline = deadline;
+            self.deadline = deadline
 
         if status != None:
-            self.status = status;
+            self.status = status
 
     def to_dict(self):
         return {"id" : self.task_id,
