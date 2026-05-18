@@ -1,110 +1,18 @@
 from models.task import Task
 from models.user import User, Admin
 from services.task_manager import TaskManager
-from utils.file_handler import load_tasks, save_tasks
+from utils.file_handler import task_from_json, task_to_json
+
+DATA_FILE = "data/tasks.json"
 
 
-FILE_PATH = "data/tasks.json"
+def choose_role():
+    print("Welcome to Task Manager!")
+    print("1. Login as Admin")
+    print("2. Login as User")
+    choice = input("Choose role: ")
 
-
-def choose_user():
-    print("Choose role:")
-    print("1. User")
-    print("2. Admin")
-
-    choice = input("Enter choice: ")
-
-    if choice == "2":
+    if choice == "1":
         return Admin()
-
-    return User()
-
-def add_new_task(manager):
-    task_id = int(input("Enter task ID: "))
-    title = input("Enter title: ")
-    description = input("Enter description: ")
-    priority = input("Enter priority (low/medium/high): ")
-    deadline = input("Enter deadline (YYYY-MM-DD): ")
-    status = input("Enter status (pending/in_progress/completed): ")
-
-    task = Task(
-        task_id,
-        title,
-        description,
-        priority,
-        deadline,
-        status
-    )
-
-    manager.add_task(task)
-
-
-def edit_existing_task(manager):
-    task_id = int(input("Enter task ID to edit: "))
-
-    print("Leave field empty if you do not want to change it.")
-
-    title = input("New title: ")
-    description = input("New description: ")
-    priority = input("New priority: ")
-    deadline = input("New deadline: ")
-    status = input("New status: ")
-
-    if title == "":
-        title = None
-
-    if description == "":
-        description = None
-
-    if priority == "":
-        priority = None
-
-    if deadline == "":
-        deadline = None
-
-    if status == "":
-        status = None
-
-    result = manager.edit_task(
-        task_id,
-        title,
-        description,
-        priority,
-        deadline,
-        status
-    )
-
-    if result:
-        print("Task updated")
     else:
-        print("Task not found or invalid")
-
-
-def delete_existing_task(manager):
-    task_id = int(input("Enter task ID to delete: "))
-
-    result = manager.delete_task(task_id)
-
-    if result:
-        print("Task deleted")
-    else:
-        print("Task not found")
-
-
-def mark_task_completed(manager):
-    task_id = int(input("Enter task ID: "))
-
-    result = manager.mark_completed(task_id)
-
-    if result:
-        print("Task marked as completed")
-    else:
-        print("Task not found")
-
-def show_tasks(tasks):
-    if len(tasks) == 0:
-        print("No tasks")
-        return
-
-    for task in tasks:
-        print(task)
+        return User()
