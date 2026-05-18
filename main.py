@@ -61,3 +61,61 @@ def sort_and_show(manager):
     for task in sorted_tasks:
         print(task.title, "-", task.priority, "-", task.deadline)
 
+
+def add_task(manager):
+    print("\n--- ADD TASK ---")
+
+    if len(manager.tasks) == 0:
+        new_id = 1
+    else:
+        new_id = manager.tasks[-1].task_id + 1
+
+    title = input("Title: ")
+    description = input("Description: ")
+    priority = input("Priority (low / medium / high): ")
+    deadline = input("Deadline (YYYY-MM-DD): ")
+    status = input("Status (pending / in_progress / completed): ")
+
+    task = Task(new_id, title, description, priority, deadline, status)
+    manager.add_task(task)
+    print("Task added!")
+
+
+def edit_task(manager):
+    print("\n--- EDIT TASK ---")
+    task_id = int(input("Enter task ID to edit: "))
+
+    print("Leave field empty to keep old value")
+    title = input("New title: ") or None
+    description = input("New description: ") or None
+    priority = input("New priority (low / medium / high): ") or None
+    deadline = input("New deadline (YYYY-MM-DD): ") or None
+    status = input("New status (pending / in_progress / completed): ") or None
+
+    result = manager.edit_task(task_id, title, description, priority, deadline, status)
+    if result:
+        print("Task updated!")
+    else:
+        print("Task not found or invalid data!")
+
+
+def delete_task(manager):
+    print("\n--- DELETE TASK ---")
+    task_id = int(input("Enter task ID to delete: "))
+
+    result = manager.delete_task(task_id)
+    if result:
+        print("Task deleted!")
+    else:
+        print("Task not found!")
+
+
+def complete_task(manager):
+    print("\n--- MARK AS COMPLETED ---")
+    task_id = int(input("Enter task ID: "))
+
+    result = manager.mark_completed(task_id)
+    if result:
+        print("Task marked as completed!")
+    else:
+        print("Task not found!")
