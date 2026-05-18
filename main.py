@@ -34,3 +34,30 @@ def show_menu(role):
     print("7. Show overdue tasks")
     print("8. Sort tasks by priority")
     print("0. Exit")
+
+def view_tasks(manager):
+    print("\n--- ALL TASKS ---")
+    manager.show_tasks()
+
+
+def view_statistics(manager):
+    print("\n--- STATISTICS ---")
+    manager.statistics()
+
+
+def view_overdue(manager):
+    print("\n--- OVERDUE TASKS ---")
+    overdue = manager.overdue_tasks()
+    if len(overdue) == 0:
+        print("No overdue tasks!")
+    else:
+        for task in overdue:
+            print(task)
+
+
+def sort_and_show(manager):
+    print("\n--- SORTED TASKS (by priority) ---")
+    sorted_tasks = manager.sort_tasks()
+    for task in sorted_tasks:
+        print(task.title, "-", task.priority, "-", task.deadline)
+
