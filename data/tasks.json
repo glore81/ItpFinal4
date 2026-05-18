@@ -16,6 +16,22 @@
         "status": "pending"
     },
     {
+        "id": 5,
+        "title": "Submit GitHub repository",
+        "description": "Upload source code, README file, and project structure to GitHub",
+        "priority": "high",
+        "deadline": "2026-05-18",
+        "status": "pending"
+    },
+    {
+        "id": 8,
+        "title": "Prepare for code defense",
+        "description": "Each team member should be ready to explain their part of the code",
+        "priority": "high",
+        "deadline": "2026-05-21",
+        "status": "pending"
+    },
+    {
         "id": 3,
         "title": "Study Python OOP",
         "description": "Review classes, inheritance, encapsulation, and polymorphism",
@@ -32,22 +48,6 @@
         "status": "in_progress"
     },
     {
-        "id": 5,
-        "title": "Submit GitHub repository",
-        "description": "Upload source code, README file, and project structure to GitHub",
-        "priority": "high",
-        "deadline": "2026-05-18",
-        "status": "pending"
-    },
-    {
-        "id": 6,
-        "title": "Check README file",
-        "description": "Make sure README includes project description, run instructions, and team members",
-        "priority": "low",
-        "deadline": "2026-05-20",
-        "status": "pending"
-    },
-    {
         "id": 7,
         "title": "Fix validation errors",
         "description": "Check priority, status, and deadline format validation",
@@ -56,11 +56,11 @@
         "status": "pending"
     },
     {
-        "id": 8,
-        "title": "Prepare for code defense",
-        "description": "Each team member should be ready to explain their part of the code",
-        "priority": "high",
-        "deadline": "2026-05-21",
+        "id": 6,
+        "title": "Check README file",
+        "description": "Make sure README includes project description, run instructions, and team members",
+        "priority": "low",
+        "deadline": "2026-05-20",
         "status": "pending"
     }
 ]
