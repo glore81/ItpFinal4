@@ -1,5 +1,5 @@
 import json
-from models.task import from_dict, Task
+from models.task import from_dict
 
 
 def task_from_json(filename,task_manager):
@@ -20,11 +20,11 @@ def task_from_json(filename,task_manager):
 
 def task_to_json(filename,task_manager):
     try:
-        task=[]
+        data=[]
         for task in task_manager.tasks:
-            task.append(task.to_dict())
+            data.append(task.to_dict())
         with open(filename,'w') as f:
-            json.dump(task,f,indent=4)
+            json.dump(data,f,indent=4)
         print("Saved!")
         return True
     except Exception as e:
