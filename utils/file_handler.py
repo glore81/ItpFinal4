@@ -2,7 +2,7 @@ import json
 from models.task import from_dict
 
 
-def task_from_json(filename,task_manager):
+def task_from_json(task_manager,filename='tasks.json' ):
     try:
         with open(filename,'r') as f:
             tasks = json.load(f)
