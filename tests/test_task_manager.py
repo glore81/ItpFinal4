@@ -16,7 +16,11 @@ class TaskManagerTest(unittest.TestCase):
         self.assertTrue(end)
         self.assertEqual(len(self.manager.tasks), 1)
     def test_mark_task(self):
-        end=self.manager.mark_completed(1)
-        self.assertTrue(end)
+        mark=self.manager.mark_completed(1)
+        self.assertTrue(mark)
         self.assertEqual(self.task.status, "completed")
+    def test_find_task(self):
+        found=self.manager.find_task(1)
+        self.assertEqual(found.task_id, 1)
+        self.assertEqual(found.title, "Test")
 
