@@ -10,7 +10,13 @@ class TaskManagerTest(unittest.TestCase):
     def test_add_task(self):
         new_task=Task(2, "fresh", "Description", "medium", "2026-11-08", "in progress")
         self.manager.add_task(new_task)
-        if len(self.manager.tasks)==2:
-            return True
-        else:
-            return False
+        self.assertEqual(len(self.manager.tasks), 2)
+    def test_delete_task(self):
+        end=self.manager.delete_task(1)
+        self.assertTrue(end)
+        self.assertEqual(len(self.manager.tasks), 1)
+    def test_mark_task(self):
+        end=self.manager.mark_completed(1)
+        self.assertTrue(end)
+        self.assertEqual(self.task.status, "completed")
+
