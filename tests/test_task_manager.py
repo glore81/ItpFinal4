@@ -24,3 +24,5 @@ class TaskManagerTest(unittest.TestCase):
         self.assertEqual(found.task_id, 1)
         self.assertEqual(found.title, "Test")
 
+if __name__ == "__main__":
+    unittest.main()
